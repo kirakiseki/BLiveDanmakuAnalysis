@@ -42,6 +42,7 @@ def init():
 def login() -> Credential:
     username = os.getenv("USERNAME")
     password = os.getenv("PASSWORD")
+    buvid3 = os.getenv("BUVID3")
 
     if not username or not password:
         logger.fatal("username or password undefined! Exiting...")
@@ -55,7 +56,7 @@ def login() -> Credential:
     else:
         credential = c
         if not credential.has_buvid3():
-            credential.buvid3 = "2F7CC600-E511-9348-8699-E086CCBC620C74007infoc"
+            credential.buvid3 = buvid3
 
     return credential
 
